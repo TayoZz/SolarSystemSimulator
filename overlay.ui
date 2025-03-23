@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Overlay</class>
+ <widget class="QWidget" name="Overlay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1091</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Terminal</family>
+    <bold>true</bold>
+    <underline>false</underline>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QListView" name="listView">
+   <property name="geometry">
+    <rect>
+     <x>1260</x>
+     <y>160</y>
+     <width>521</width>
+     <height>681</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="sizeIncrement">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>11</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListView {
+    background-color: rgba(40, 42, 54, 0.95); /* Slight transparency effect */
+    border: 2px solid #4A4D5E;
+    border-radius: 10px;
+    padding: 6px;
+    color: #E3E6EE;
+    font: 11pt &quot;Inter&quot;;
+    backdrop-filter: blur(10px); /* Smooth glass effect */
+}
+
+/* List Items */
+QListView::item {
+    background-color: transparent;
+    padding: 8px;
+    border-bottom: 1px solid rgba(100, 110, 130, 0.2); /* Soft dividers */
+}
+
+QListView::item:selected {
+    background-color: #3D4250; /* Sleek selection effect */
+    color: white;
+    border: 1px solid #6A6F85;
+}
+
+QListView::item:hover {
+    background-color: #4A5062;
+    color: white;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ObjectTypeLabel">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>250</y>
+     <width>191</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>-30172</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+     <hintingpreference>PreferFullHinting</hintingpreference>
+    </font>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 40px;</string>
+   </property>
+   <property name="text">
+    <string notr="true">Planet</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ObjectAttributeLabel">
+   <property name="geometry">
+    <rect>
+     <x>1280</x>
+     <y>450</y>
+     <width>491</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>-30172</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+     <hintingpreference>PreferFullHinting</hintingpreference>
+    </font>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 20px;</string>
+   </property>
+   <property name="text">
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mass: 6.3e13 kg&lt;/p&gt;&lt;p&gt;Orbitradius: 2.42e3 km&lt;/p&gt;&lt;p&gt;Radius: 6371km&lt;/p&gt;&lt;p&gt;Surface Gravity: 9.81 m/s&lt;/p&gt;&lt;p&gt;Day (Rotation): 24h&lt;/p&gt;&lt;p&gt;Year (Revolution): 365d&lt;/p&gt;&lt;p&gt;nat. Satellites: 1 (Moon)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ObjectNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>320</y>
+     <width>191</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>-30172</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+     <hintingpreference>PreferFullHinting</hintingpreference>
+    </font>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 35px;</string>
+   </property>
+   <property name="text">
+    <string notr="true">Earth</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QSlider" name="timeSlider">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>20</y>
+     <width>160</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+    background: #2E2F38;  /* Dark, clean base */
+    height: 6px;
+    border-radius: 3px;
+}
+
+QSlider::handle:horizontal {
+	background: #2A2D37; 
+    border: 2px solid #3D4250;
+    width: 16px;  
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+    transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+QSlider::handle:horizontal:hover {
+    background:#5A5F74;  /* Subtle hover effect */
+    transform: scale(1.1); /* Interactive feedback */
+}
+
+QSlider::sub-page:horizontal, 
+QSlider::add-page:horizontal {
+    background: #2E2F38; /* Matches groove, no highlight */
+    border-radius: 3px;
+}</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sunButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>SUN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="neptuneButton">
+   <property name="geometry">
+    <rect>
+     <x>1728</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>NEPTUNE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mercuryButton">
+   <property name="geometry">
+    <rect>
+     <x>277</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>MERCURY</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="venusButton">
+   <property name="geometry">
+    <rect>
+     <x>484</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>VENUS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="marsButton">
+   <property name="geometry">
+    <rect>
+     <x>898</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>MARS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="earthButton">
+   <property name="geometry">
+    <rect>
+     <x>691</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>EARTH</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="jupiterButton">
+   <property name="geometry">
+    <rect>
+     <x>1105</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>JUPITER</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="uranusButton">
+   <property name="geometry">
+    <rect>
+     <x>1520</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>URANUS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saturnButton">
+   <property name="geometry">
+    <rect>
+     <x>1313</x>
+     <y>1010</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #2A2D37; /* Rich dark gray, no flat black */
+    color: #E3E6EE; /* Soft off-white text */
+    font: 12pt &quot;Montserrat&quot;;
+    border: 2px solid #3D4250; /* Subtle border */
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+}
+
+QPushButton:hover {
+    background-color: #343844; /* Slightly lighter on hover */
+    border-color: #3D4250;
+}
+
+QPushButton:pressed {
+    background-color: #1E2028; /* Darker pressed effect */
+    border-color: #FFFFFF;
+}
+@keyframes glowPulse {
+    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
+    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
+}
+
+QPushButton:focus {
+    outline: none;
+    border: 2px solid #FFFFFF;
+    animation: glowPulse 1.5s infinite alternate;
+}</string>
+   </property>
+   <property name="text">
+    <string>SATURN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fps_text">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="text">
+    <string>FPS: 60</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="simulation_speed_text">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>50</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>321</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="text">
+    <string>Normal Timestep (Best Performance)</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>160</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="text">
+    <string>High Timestep (No Moons)</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="text">
+    <string>Highest Timestep (No Moons)</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>-1</pointsize>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+QCheckBox::indicator:checked {
+    background-color:  transparent;
+    border: 2px solid white;
+	position: relative;
+
+}
+
+QCheckBox::indicator:unchecked:hover {
+    border: 2px solid #ffcc99;
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #ffcc99;
+    border: 2px solid #ffcc99;
+}
+
+QCheckBox {
+    spacing: 10px; /* Space between checkbox and text */
+    font-size: 14px;
+     color: white;
+}
+
+QCheckBox:hover {
+    color: #ffcc99;
+}
+ </string>
+   </property>
+   <property name="text">
+    <string>Performance Mode</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
