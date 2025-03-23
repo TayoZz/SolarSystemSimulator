@@ -85,8 +85,8 @@ class SolarSystem(QMainWindow):
 
 
         # Slider for simulation speed
-        self.sliderValues = [0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4,
-                             20, 30, 40, 60, 90, 120, 150, 200, 300, 500, 600, 800, 1000]
+        self.sliderValues = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1,
+                             1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 25, 30]
         self.timeSlider = self.ui_obj.timeSlider
         self.timeSlider.setMinimum(-13)
         self.timeSlider.setMaximum(13)
@@ -211,8 +211,7 @@ class SolarSystem(QMainWindow):
 
     def update(self):
         self.update_positions()
-        self.base_sim_speed = 1/ self.view.zoom_factor
-        print(str(self.view.zoom_factor))
+        self.base_sim_speed = 1 / (math.sqrt(self.view.zoom_factor))
 
     def update_positions(self):
         # Update simulation speed based on slider (multiplier)
@@ -238,7 +237,7 @@ class SolarSystem(QMainWindow):
 
         # Follow a planet if enabled
         if self.is_following and self.following_planet:
-            if not self.view._panning:
+            if not self.view._panning and self.view.zoom_factor > 0.3:
                 self.view.centerOn(self.following_planet.x() + 350 / self.view.zoom_factor,
                                    self.following_planet.y())
             else:
