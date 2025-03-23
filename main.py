@@ -35,8 +35,8 @@ class SolarSystem(QMainWindow):
 
         # Timer for animation (rendering updates)
         self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_positions)
-        self.timer.start(4)  # Attempt ~60 FPS (or as fast as possible)
+        self.timer.timeout.connect(self.update)
+        self.timer.start(16)  # Attempt ~60 FPS (or as fast as possible)
 
         self.is_following = False  # Flag to track if following a planet
         self.following_planet = None
@@ -57,7 +57,7 @@ class SolarSystem(QMainWindow):
         self.scene.setBackgroundBrush(QColor("#000008"))
         self.view = ZoomableView(self.scene, self)
         self.view.setViewport(QOpenGLWidget())
-        self.view.setStyleSheet("background: yellow; border: none;")
+        self.view.setStyleSheet("border: none;")
         self.view.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.view.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.view.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -85,7 +85,7 @@ class SolarSystem(QMainWindow):
 
 
         # Slider for simulation speed
-        self.sliderValues = [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.5, 2, 2.5, 4, 6, 8, 10, 15,
+        self.sliderValues = [0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4,
                              20, 30, 40, 60, 90, 120, 150, 200, 300, 500, 600, 800, 1000]
         self.timeSlider = self.ui_obj.timeSlider
         self.timeSlider.setMinimum(-13)
@@ -209,18 +209,23 @@ class SolarSystem(QMainWindow):
             star.setPen(QPen(Qt.PenStyle.NoPen))
             self.scene.addItem(star)
 
+    def update(self):
+        self.update_positions()
+        self.base_sim_speed = 1/ self.view.zoom_factor
+        print(str(self.view.zoom_factor))
+
     def update_positions(self):
         # Update simulation speed based on slider (multiplier)
         self.simulation_speed = self.base_sim_speed * self.sliderValues[self.timeSlider.value() + 13]
         self.ui_obj.simulation_speed_text.setText(str(self.sliderValues[self.timeSlider.value() + 13]))
 
-        if self.sliderValues[self.timeSlider.value() + 13] > 100:
+        if self.simulation_speed > 5:
             self.remove_moons()
             self.moons_active = False
         elif not self.moons_active:
             self.add_moons()
 
-        fixed_dt = 1 / 30 # Assume 60 updates per second
+        fixed_dt = 1 / 60 # Assume 60 updates per second
         physics_update_rate = 5
         for _ in range(physics_update_rate):
             dt = fixed_dt * self.simulation_speed
