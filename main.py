@@ -1,3 +1,5 @@
+# main.py
+
 import sys, time
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
@@ -9,11 +11,15 @@ import math
 from overlay import Ui_Overlay as ui
 from Moon import Moon
 from planet_class import PlanetObject as Planet
+from Planet_Update_Worker import PlanetUpdateWorker
+from Moon_Update_Worker import MoonUpdateWorker
 
 class SolarSystem(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.showMaximized()
         self.planets = []
         self.moons = []
         self.base_sim_speed = 0.1  # Base multiplier for simulation speed # Small physics timestep in seconds (for accuracy)
@@ -23,6 +29,7 @@ class SolarSystem(QMainWindow):
         self.is_hovering_ui = False
         self.create_stars()
         self.moons_active = True
+        self.thread_pool = QThreadPool.globalInstance()
 
         # Physics configuration
           # Actual simulation speed multiplier (adjustable via slider)
@@ -40,6 +47,8 @@ class SolarSystem(QMainWindow):
 
         self.is_following = False  # Flag to track if following a planet
         self.following_planet = None
+
+        self.ObjectAttributeList = ["<html><head/><body><p>Mass: 3,301e23 kg</p><p>Orbitradius: 5.7e9 km</p><p>Radius: 2440km</p><p>Surface Gravity: 3.7 N/kg</p><p>Day (Rotation): 58d</p><p>Year (Revolution): 88d</p><p>nat. Satellites: 0</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 4.87e24 kg</p><p>Orbitradius: 1.08e11 km</p><p>Radius: 6050 km</p><p>Surface Gravity: 8.87 N/kg</p><p>Day (Rotation): 243d</p><p>Year (Revolution): 224d</p><p>nat. Satellites: 0</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 5.97e24 kg</p><p>Orbitradius: 1.496e8 km</p><p>Radius: 6371 km</p><p>Surface Gravity: 9.81 N/kg</p><p>Day (Rotation): 1d = 24h</p><p>Year (Revolution): 365d</p><p>nat. Satellites: 1 (Moon)</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 6.417e23 kg</p><p>Orbitradius: 2.24e9 km</p><p>Radius: 3396 km</p><p>Surface Gravity: 3.7 N/kg</p><p>Day (Rotation): 1d</p><p>Year (Revolution): 687d</p><p>nat. Satellites: 2 (Phobos, Deimos)</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 1.89e27 kg</p><p>Orbitradius: 7.85e10 km</p><p>Radius: 71490 km</p><p>Surface Gravity: 24.8 N/kg</p><p>Day (Rotation): 9.9h</p><p>Year (Revolution): 12y</p><p>nat. Satellites: 95+</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 5.68e26 kg</p><p>Orbitradius: 1.421e10 km</p><p>Radius: 16238 km</p><p>Surface Gravity: 10.4 N/kg</p><p>Day (Rotation): 10.7h</p><p>Year (Revolution): 29.4y</p><p>nat. Satellites: 274+</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 8.681e25 kg</p><p>Orbitradius: 2.84e9 km</p><p>Radius: 25559km</p><p>Surface Gravity: 8.87 N/kg</p><p>Day (Rotation): 17h</p><p>Year (Revolution): 84d</p><p>nat. Satellites: 25+</p><p><br/></p><p><br/></p></body></html>", "<html><head/><body><p>Mass: 1.024e26 kg</p><p>Orbitradius: 4.48e9 km</p><p>Radius: 24787km</p><p>Surface Gravity: 11.15 N/kg</p><p>Day (Rotation): 16</p><p>Year (Revolution): 165y</p><p>nat. Satellites: 16+</p><p><br/></p><p><br/></p></body></html>"]
 
     def setup_ui(self):
         self.setWindowTitle("Solar System Simulation")
@@ -129,7 +138,7 @@ class SolarSystem(QMainWindow):
         self.view.resetTransform()
         self.is_following = True
         self.following_planet = planet
-        #self.follow_planet(planet)
+        self.follow_planet(planet)
 
     def follow_planet(self, planet):
         self.view.centerOn(planet)
@@ -148,6 +157,8 @@ class SolarSystem(QMainWindow):
         self.add_planet("saturn", 5.683e26, 9.54, 0, 370, "HIGHSCALE", "saturn.svg", sun) # extra größer weil grafik vergleichsweise kleiner (wegen den ringen)
         self.add_planet("uranus", 8.681e25, 19.22, 0, 340, "HIGHSCALE", "uranus.svg", sun)
         self.add_planet("neptune", 1.024e26, 30.1, 0, 150, "HIGHSCALE", "neptune.svg", sun)
+        #self.add_planet("pluto", 1.3e22, 35, 0, 60, "HIGHSCALE", "mercury.svg", sun)
+        #self.add_planet("charon", 1.586e21, 35.00013369174, 0, 50, "HIGHSCALE", "mercury.svg", sun)
 
         self.add_moons()
 
@@ -158,7 +169,19 @@ class SolarSystem(QMainWindow):
         self.add_moon("io", 8.931e22, 0.0028195588481728, 0, 25, "moon.svg", self.planets[5])
         self.add_moon("europa", 4.8e22, 0.004486026417754, 0, 18, "moon.svg", self.planets[5])
         self.add_moon("titan", 1.345e23, 0.00816742908360125, 0, 28, "moon.svg", self.planets[6])
-
+        """
+        self.add_moon("triton", 2.14e22, 0.00237, 0, 14, "moon.svg", self.planets[8])  # Neptune
+        self.add_moon("rhea", 2.31e21, 0.0014, 0, 80, "moon.svg", self.planets[6])  # Saturn
+        self.add_moon("oberon", 3.01e21, 0.0014, 0, 70, "moon.svg", self.planets[7])  # Uranus
+        self.add_moon("iapetus", 1.81e21, 0.00356, 0, 90, "moon.svg", self.planets[6])  # Saturn
+        self.add_moon("dione", 1.1e21, 0.00152, 0, 60, "moon.svg", self.planets[6])  # Saturn
+        self.add_moon("tethys", 6.17e20, 0.00122, 0, 50, "moon.svg", self.planets[6])  # Saturn
+        self.add_moon("enceladus", 1.08e20, 0.0006, 0, 40, "moon.svg", self.planets[6])  # Saturn
+        self.add_moon("ariel", 1.35e21, 0.00191, 0, 70, "moon.svg", self.planets[7])  # Uranus
+        self.add_moon("miranda", 6.4e19, 0.00129, 0, 30, "moon.svg", self.planets[7])  # Uranus
+        self.add_moon("phobos", 1.08e16, 0.00006, 0, 20, "moon.svg", self.planets[4])  # Mars
+        self.add_moon("deimos", 2.0e15, 0.00023, 0, 10, "moon.svg", self.planets[4])  # Mars
+        """
         self.moons_active = True
 
     def add_planet(self, name, mass, x, y, size, scaletype, texture_path, sun):
@@ -211,7 +234,47 @@ class SolarSystem(QMainWindow):
 
     def update(self):
         self.update_positions()
-        self.base_sim_speed = 1 / (math.sqrt(self.view.zoom_factor))
+        self.base_sim_speed = 1 / (math.sqrt(self.view.zoom_factor)) / 10
+
+    @pyqtSlot(object, object, int)
+    def on_planet_updated(self, planet, new_state, update_id):
+        # Only update if update_id matches planet's current_update_id:
+        if update_id != planet.current_update_id:
+            return  # Outdated update; ignore it.
+        new_position, new_velocity = new_state
+        # Update the planet's simulation state:
+        planet.sim_pos = new_position
+        planet.velocity = new_velocity
+
+        # Compute the new on-screen position (example for SCALE type):
+        screen_pos = QPointF(new_position[0] / planet.METER_PER_PIXEL,
+                             new_position[1] / planet.METER_PER_PIXEL)
+        planet.updatePosition(screen_pos)
+        planet.update()
+
+        if self.is_following and self.following_planet:
+            if not self.view._panning and self.view.zoom_factor > 0.3:
+                self.view.centerOn(self.following_planet.x() + 350 / self.view.zoom_factor,
+                                   self.following_planet.y())
+                if self.following_planet.type == Planet:
+                    self.updateInfoText(self.planets.index(self.following_planet) - 1)
+            else:
+                self.is_following = False
+                self.following_planet = None
+
+    @pyqtSlot(object, object, int)
+    def on_moon_updated(self, moon, new_state, update_id):
+        if update_id != moon.current_update_id:
+            return
+        new_position, new_velocity = new_state
+        moon.sim_pos = new_position
+        moon.velocity = new_velocity
+        # Compute the new on-screen position for the moon here.
+        # (Assuming similar scaling logic as before.)
+        screen_pos = QPointF(new_position[0] / moon.METER_PER_PIXEL,
+                             new_position[1] / moon.METER_PER_PIXEL)
+        moon.updatePosition(screen_pos)
+        moon.update()
 
     def update_positions(self):
         # Update simulation speed based on slider (multiplier)
@@ -226,23 +289,41 @@ class SolarSystem(QMainWindow):
 
         fixed_dt = 1 / 60 # Assume 60 updates per second
         physics_update_rate = 5
-        for _ in range(physics_update_rate):
-            dt = fixed_dt * self.simulation_speed
-            for planet in self.planets:
-                planet.update_position(self.planets,dt)
-            for _ in range(20):
-                for moon in self.moons:
-                    moon.update_position(dt)
+        dt = fixed_dt * self.simulation_speed
 
+        for planet in self.planets:
+            # Increment the update id for this planet.
+            if not hasattr(planet, 'current_update_id'):
+                planet.current_update_id = 0
+            else:
+                planet.current_update_id += 1
+
+            worker = PlanetUpdateWorker(planet, self.planets, self.simulation_speed,physics_update_rate, fixed_dt, planet.current_update_id)
+            worker.signals.finished.connect(self.on_planet_updated)
+            self.thread_pool.start(worker)
+
+            # Moon updates: (similar approach if needed; here add an update_id for moons too)
+        for moon in self.moons:
+            if not hasattr(moon, 'current_update_id'):
+                moon.current_update_id = 0
+            else:
+                moon.current_update_id += 1
+
+            worker = MoonUpdateWorker(moon, self.simulation_speed, physics_update_rate, fixed_dt, moon.current_update_id)
+            worker.signals.finished.connect(self.on_moon_updated)
+            self.thread_pool.start(worker)
 
         # Follow a planet if enabled
+        """
         if self.is_following and self.following_planet:
             if not self.view._panning and self.view.zoom_factor > 0.3:
                 self.view.centerOn(self.following_planet.x() + 350 / self.view.zoom_factor,
                                    self.following_planet.y())
+                if self.following_planet.type == Planet:
+                    self.updateInfoText(self.planets.index(self.following_planet) - 1)
             else:
                 self.is_following = False
-                self.following_planet = None
+                self.following_planet = None"""
 
         # FPS Calculation
         current_time = time.time()
@@ -255,6 +336,9 @@ class SolarSystem(QMainWindow):
             self.fps_text.setText("FPS: " + str(fps))
             self.fps_counter = 0
             self.fps_accumulator = 0.0
+
+    def updateInfoText(self, index):
+        self.ui_obj.ObjectAttributeLabel.setText(self.ObjectAttributeList[index])
 
 class ZoomableView(QGraphicsView):
 
@@ -341,7 +425,7 @@ class ZoomableView(QGraphicsView):
         self.zoom_factor *= zoom_factor
 
     def mousePressEvent(self, event: QMouseEvent):
-        if event.button() == Qt.MouseButton.MiddleButton:
+        if event.button() == Qt.MouseButton.MiddleButton or event.button() == Qt.MouseButton.RightButton:
             self._panning = True
             self._last_mouse_pos = event.pos()
             self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
@@ -417,7 +501,7 @@ class ZoomableView(QGraphicsView):
             super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event: QMouseEvent):
-        if event.button() == Qt.MouseButton.MiddleButton:
+        if event.button() == Qt.MouseButton.MiddleButton or event.button() == Qt.MouseButton.RightButton:
             self._panning = False
             self.setDragMode(QGraphicsView.DragMode.NoDrag)
             self.setCursor(Qt.CursorShape.ArrowCursor)

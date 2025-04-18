@@ -66,7 +66,7 @@ class Ui_Overlay(object):
         self.ObjectTypeLabel.setSizePolicy(sizePolicy)
         self.ObjectTypeLabel.setBaseSize(QtCore.QSize(-30172, 0))
         font = QtGui.QFont()
-        font.setFamily("Calibri")
+        font.setFamily("Bahnschrift")
         font.setPointSize(-1)
         font.setBold(True)
         font.setItalic(False)
@@ -75,7 +75,7 @@ class Ui_Overlay(object):
         font.setKerning(False)
         self.ObjectTypeLabel.setFont(font)
         self.ObjectTypeLabel.setToolTipDuration(-1)
-        self.ObjectTypeLabel.setStyleSheet("font-size: 40px;")
+        self.ObjectTypeLabel.setStyleSheet("QLabel { color: white; font-size: 40px; font-family: Bahnschrift; }")
         self.ObjectTypeLabel.setText("Planet")
         self.ObjectTypeLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.ObjectTypeLabel.setObjectName("ObjectTypeLabel")
@@ -88,7 +88,7 @@ class Ui_Overlay(object):
         self.ObjectAttributeLabel.setSizePolicy(sizePolicy)
         self.ObjectAttributeLabel.setBaseSize(QtCore.QSize(-30172, 0))
         font = QtGui.QFont()
-        font.setFamily("Calibri")
+        font.setFamily("Bahnschrift")
         font.setPointSize(-1)
         font.setBold(False)
         font.setItalic(False)
@@ -97,7 +97,7 @@ class Ui_Overlay(object):
         font.setKerning(False)
         self.ObjectAttributeLabel.setFont(font)
         self.ObjectAttributeLabel.setToolTipDuration(-1)
-        self.ObjectAttributeLabel.setStyleSheet("font-size: 20px;")
+        self.ObjectAttributeLabel.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.ObjectAttributeLabel.setText("<html><head/><body><p>Mass: 6.3e13 kg</p><p>Orbitradius: 2.42e3 km</p><p>Radius: 6371km</p><p>Surface Gravity: 9.81 m/s</p><p>Day (Rotation): 24h</p><p>Year (Revolution): 365d</p><p>nat. Satellites: 1 (Moon)</p><p><br/></p><p><br/></p></body></html>")
         self.ObjectAttributeLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.ObjectAttributeLabel.setObjectName("ObjectAttributeLabel")
@@ -110,7 +110,7 @@ class Ui_Overlay(object):
         self.ObjectNameLabel.setSizePolicy(sizePolicy)
         self.ObjectNameLabel.setBaseSize(QtCore.QSize(-30172, 0))
         font = QtGui.QFont()
-        font.setFamily("Calibri")
+        font.setFamily("Bahnschrift")
         font.setPointSize(-1)
         font.setBold(False)
         font.setItalic(False)
@@ -119,7 +119,7 @@ class Ui_Overlay(object):
         font.setKerning(False)
         self.ObjectNameLabel.setFont(font)
         self.ObjectNameLabel.setToolTipDuration(-1)
-        self.ObjectNameLabel.setStyleSheet("font-size: 35px;")
+        self.ObjectNameLabel.setStyleSheet("QLabel { color: white; font-size: 35px; font-family: Bahnschrift; }")
         self.ObjectNameLabel.setText("Earth")
         self.ObjectNameLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.ObjectNameLabel.setObjectName("ObjectNameLabel")
@@ -156,9 +156,9 @@ class Ui_Overlay(object):
         self.sunButton = QtWidgets.QPushButton(parent=Overlay)
         self.sunButton.setGeometry(QtCore.QRect(70, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -167,7 +167,7 @@ class Ui_Overlay(object):
         self.sunButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -199,9 +199,9 @@ class Ui_Overlay(object):
         self.neptuneButton = QtWidgets.QPushButton(parent=Overlay)
         self.neptuneButton.setGeometry(QtCore.QRect(1728, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -211,7 +211,7 @@ class Ui_Overlay(object):
         self.neptuneButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -243,9 +243,9 @@ class Ui_Overlay(object):
         self.mercuryButton = QtWidgets.QPushButton(parent=Overlay)
         self.mercuryButton.setGeometry(QtCore.QRect(277, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -254,7 +254,7 @@ class Ui_Overlay(object):
         self.mercuryButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -286,9 +286,9 @@ class Ui_Overlay(object):
         self.venusButton = QtWidgets.QPushButton(parent=Overlay)
         self.venusButton.setGeometry(QtCore.QRect(484, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -297,7 +297,7 @@ class Ui_Overlay(object):
         self.venusButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -329,9 +329,9 @@ class Ui_Overlay(object):
         self.marsButton = QtWidgets.QPushButton(parent=Overlay)
         self.marsButton.setGeometry(QtCore.QRect(898, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -340,7 +340,7 @@ class Ui_Overlay(object):
         self.marsButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -372,9 +372,9 @@ class Ui_Overlay(object):
         self.earthButton = QtWidgets.QPushButton(parent=Overlay)
         self.earthButton.setGeometry(QtCore.QRect(691, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -383,7 +383,7 @@ class Ui_Overlay(object):
         self.earthButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -415,9 +415,9 @@ class Ui_Overlay(object):
         self.jupiterButton = QtWidgets.QPushButton(parent=Overlay)
         self.jupiterButton.setGeometry(QtCore.QRect(1105, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -426,7 +426,7 @@ class Ui_Overlay(object):
         self.jupiterButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -458,9 +458,9 @@ class Ui_Overlay(object):
         self.uranusButton = QtWidgets.QPushButton(parent=Overlay)
         self.uranusButton.setGeometry(QtCore.QRect(1520, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -469,7 +469,7 @@ class Ui_Overlay(object):
         self.uranusButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -501,9 +501,9 @@ class Ui_Overlay(object):
         self.saturnButton = QtWidgets.QPushButton(parent=Overlay)
         self.saturnButton.setGeometry(QtCore.QRect(1313, 1010, 150, 50))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
+        font.setFamily("Bahnschrift")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -512,7 +512,7 @@ class Ui_Overlay(object):
         self.saturnButton.setStyleSheet("QPushButton {\n"
 "    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
 "    color: #E3E6EE; /* Soft off-white text */\n"
-"    font: 12pt \"Montserrat\";\n"
+"    font: bold 12pt \"Bahnschrift\";\n"
 "    border: 2px solid #3D4250; /* Subtle border */\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
@@ -545,20 +545,22 @@ class Ui_Overlay(object):
         self.fps_text.setGeometry(QtCore.QRect(40, 20, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
-        font.setPointSize(14)
+        font.setPointSize(-1)
         font.setBold(False)
         font.setUnderline(False)
         font.setKerning(False)
         self.fps_text.setFont(font)
+        self.fps_text.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.fps_text.setObjectName("fps_text")
         self.simulation_speed_text = QtWidgets.QLabel(parent=Overlay)
         self.simulation_speed_text.setGeometry(QtCore.QRect(170, 50, 81, 21))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
-        font.setPointSize(12)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setUnderline(False)
         self.simulation_speed_text.setFont(font)
+        self.simulation_speed_text.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.simulation_speed_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.simulation_speed_text.setObjectName("simulation_speed_text")
         self.checkBox = QtWidgets.QCheckBox(parent=Overlay)
