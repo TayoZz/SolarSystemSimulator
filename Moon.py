@@ -9,9 +9,9 @@ import math
 class Moon(QGraphicsPixmapItem):
     G = 6.67428e-11  # Gravitational constant
     # Using a small timestep for physics updates; adjust as needed.
-    TIMESTEP = 3600 * 24 / 20 # Example: one day per physics step
+    TIMESTEP = 3600 * 24 / 10 # Example: one day per physics step
     AU = 1.496e11
-    SCALE = 90000
+    SCALE = 70000
     #37400
     METER_PER_PIXEL = AU / SCALE
 
@@ -140,12 +140,12 @@ class Moon(QGraphicsPixmapItem):
         self.rel_pos += self.rel_velocity * self.TIMESTEP * simulation_speed
 
         # Recompute the absolute simulation position
-        self.sim_pos = self.planet.sim_pos + self.rel_pos
+        self.sim_pos = self.planet.sim_pos + self.rel_pos # Earth size multiplier = 1
 
         # Compute new on-screen position relative to the planet's position
         new_pos = QPointF(
-            (self.sim_pos[0] - self.planet.sim_pos[0]) / self.METER_PER_PIXEL + self.planet.x(),
-            (self.sim_pos[1] - self.planet.sim_pos[1]) / self.METER_PER_PIXEL + self.planet.y()
+            self.rel_pos[0] * self.planet.size / 150 / self.METER_PER_PIXEL + self.planet.x(),
+            self.rel_pos[1] * self.planet.size / 150 / self.METER_PER_PIXEL + self.planet.y()
         )
 
         self.updatePosition(new_pos)

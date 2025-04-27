@@ -15,11 +15,12 @@ class PlanetObject(QGraphicsObject):
     METER_PER_PIXEL = AU / SCALE
     METER_PER_PIXEL_HIGHSCALE = AU / HIGHSCALE
 
-    def __init__(self, name, mass, scene, x, y, size, scaletype, texture_path):
+    def __init__(self, name, mass, scene, x, y, size, scaletype, texture_path, solar_system):
         super().__init__()
         self.name = name
         self.mass = mass
         self.size = size  # This represents the radius
+        self.solar_system = solar_system
         self.sim_pos = np.array([x * self.AU, y * self.AU])
         self.scaletype = scaletype
         self.hover_state = False
@@ -127,6 +128,7 @@ class PlanetObject(QGraphicsObject):
             painter.setClipPath(clip_path)
 
             self.svg_renderer.render(painter, target_rect)
+
         elif self.pixmap and not self.pixmap.isNull():
             painter.drawPixmap(self.boundingRect().topLeft(), self.pixmap)
         else:
@@ -136,7 +138,10 @@ class PlanetObject(QGraphicsObject):
     def setHoverState(self, hovered):
         self.hover_state = hovered
         if hovered and self.name != "sun":
-            self.setScale(1.15)
+            if self.solar_system.view.zoom_factor < 1.2:
+                self.setScale(1.2)
+            else:
+                self.setScale(1.05)
         else:
             self.setScale(1.0)
 
@@ -150,17 +155,22 @@ class PlanetObject(QGraphicsObject):
         own_pos = self.sim_pos
         other_pos = other.sim_pos
         distance_vector = other_pos - own_pos
+        # Calculate the distance vector and its magnitude
+        # Use np.linalg.norm for better readability and efficiency
+        # Also, avoid using math.hypot as it is not necessary here
         distance = np.linalg.norm(distance_vector)
         if distance == 0:
             return np.array([0.0, 0.0])
         force = PlanetObject.G * self.mass * other.mass / (distance ** 2)
         return (force / distance) * distance_vector
 
-    def update_position(self, planets, simulation_speed):
+    def update_position(self, planets, custom_objects, simulation_speed):
         net_force = np.array([0.0, 0.0])
         for planet in planets:
-            if self != planet:
+            if self != planet and planet.name == "sun":
                 net_force += self.attraction(planet)
+        for custom_object in custom_objects:
+            net_force += self.attraction(custom_object)
         self.acceleration = net_force / self.mass
         self.velocity += self.acceleration * self.TIMESTEP * simulation_speed
         self.sim_pos += self.velocity * self.TIMESTEP * simulation_speed

@@ -1,10 +1,11 @@
+import random
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 from PyQt6.QtWidgets import *
 from PyQt6.QtSvg import *
 import math
 import numpy as np
-from main import SolarSystem as main
+#from main import SolarSystem as main
 
 
 class CustomObject(QGraphicsObject):
@@ -55,8 +56,12 @@ class CustomObject(QGraphicsObject):
             self.svg_renderer = None
 
         glow = QGraphicsDropShadowEffect()
-        glow.setBlurRadius(15)
-        glow.setColor(QColor(255, 255, 255))
+        glow.setBlurRadius(35)
+        glow.setColor(QColor(
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255)
+        ))
         glow.setOffset(0)
         self.setGraphicsEffect(glow)
 
@@ -129,12 +134,12 @@ class CustomObject(QGraphicsObject):
         force = CustomObject.G * self.mass * other.mass / (distance ** 2)
         return (force / distance) * distance_vector
 
-    def update_position(self, planets, simulation_speed):
+    def update_position(self, planets, custom_objects, simulation_speed):
         net_force = np.array([0.0, 0.0])
         for planet in planets:
             if self != planet and planet.name == "sun":
                 net_force += self.attraction(planet)
-        for custom_object in main.custom_objects:
+        for custom_object in custom_objects:
             if self != custom_object:
                 net_force += self.attraction(custom_object)
         self.acceleration = net_force / self.mass
