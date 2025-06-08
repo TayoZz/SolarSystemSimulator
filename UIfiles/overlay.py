@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Overlay(object):
     def setupUi(self, Overlay):
         Overlay.setObjectName("Overlay")
-        Overlay.resize(1920, 1091)
+        Overlay.resize(1855, 1091)
         font = QtGui.QFont()
         font.setFamily("Terminal")
         font.setBold(True)
@@ -20,6 +20,11 @@ class Ui_Overlay(object):
         Overlay.setFont(font)
         self.listView = QtWidgets.QListView(parent=Overlay)
         self.listView.setGeometry(QtCore.QRect(1350, 160, 521, 681))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.listView.sizePolicy().hasHeightForWidth())
+        self.listView.setSizePolicy(sizePolicy)
         self.listView.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.listView.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -30,36 +35,20 @@ class Ui_Overlay(object):
         font.setUnderline(False)
         self.listView.setFont(font)
         self.listView.setStyleSheet("QListView {\n"
-"    background-color: rgba(40, 42, 54, 0.95); /* Slight transparency effect */\n"
+"    background-color: rgba(40, 42, 54, 0.95); \n"
 "    border: 2px solid #4A4D5E;\n"
 "    border-radius: 10px;\n"
 "    padding: 6px;\n"
 "    color: #E3E6EE;\n"
 "    font: 11pt \"Inter\";\n"
-"    backdrop-filter: blur(10px); /* Smooth glass effect */\n"
+"    backdrop-filter: blur(10px); \n"
 "}\n"
 "\n"
-"/* List Items */\n"
-"QListView::item {\n"
-"    background-color: transparent;\n"
-"    padding: 8px;\n"
-"    border-bottom: 1px solid rgba(100, 110, 130, 0.2); /* Soft dividers */\n"
-"}\n"
-"\n"
-"QListView::item:selected {\n"
-"    background-color: #3D4250; /* Sleek selection effect */\n"
-"    color: white;\n"
-"    border: 1px solid #6A6F85;\n"
-"}\n"
-"\n"
-"QListView::item:hover {\n"
-"    background-color: #4A5062;\n"
-"    color: white;\n"
-"}")
+"")
         self.listView.setObjectName("listView")
         self.ObjectTypeLabel = QtWidgets.QLabel(parent=Overlay)
         self.ObjectTypeLabel.setGeometry(QtCore.QRect(1530, 250, 191, 91))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.ObjectTypeLabel.sizePolicy().hasHeightForWidth())
@@ -81,7 +70,7 @@ class Ui_Overlay(object):
         self.ObjectTypeLabel.setObjectName("ObjectTypeLabel")
         self.ObjectAttributeLabel = QtWidgets.QLabel(parent=Overlay)
         self.ObjectAttributeLabel.setGeometry(QtCore.QRect(1370, 450, 491, 451))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.ObjectAttributeLabel.sizePolicy().hasHeightForWidth())
@@ -103,7 +92,7 @@ class Ui_Overlay(object):
         self.ObjectAttributeLabel.setObjectName("ObjectAttributeLabel")
         self.ObjectNameLabel = QtWidgets.QLabel(parent=Overlay)
         self.ObjectNameLabel.setGeometry(QtCore.QRect(1530, 320, 191, 91))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.ObjectNameLabel.sizePolicy().hasHeightForWidth())
@@ -125,8 +114,13 @@ class Ui_Overlay(object):
         self.ObjectNameLabel.setObjectName("ObjectNameLabel")
         self.timeSlider = QtWidgets.QSlider(parent=Overlay)
         self.timeSlider.setGeometry(QtCore.QRect(120, 20, 160, 22))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.timeSlider.sizePolicy().hasHeightForWidth())
+        self.timeSlider.setSizePolicy(sizePolicy)
         self.timeSlider.setStyleSheet("QSlider::groove:horizontal {\n"
-"    background: #2E2F38;  /* Dark, clean base */\n"
+"    background: #2E2F38; \n"
 "    height: 6px;\n"
 "    border-radius: 3px;\n"
 "}\n"
@@ -142,19 +136,24 @@ class Ui_Overlay(object):
 "}\n"
 "\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background:#5A5F74;  /* Subtle hover effect */\n"
-"    transform: scale(1.1); /* Interactive feedback */\n"
+"    background:#5A5F74;  \n"
+"    transform: scale(1.1); \n"
 "}\n"
 "\n"
 "QSlider::sub-page:horizontal,\n"
 "QSlider::add-page:horizontal {\n"
-"    background: #2E2F38; /* Matches groove, no highlight */\n"
+"    background: #2E2F38; \n"
 "    border-radius: 3px;\n"
 "}")
         self.timeSlider.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.timeSlider.setObjectName("timeSlider")
         self.sunButton = QtWidgets.QPushButton(parent=Overlay)
         self.sunButton.setGeometry(QtCore.QRect(70, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.sunButton.sizePolicy().hasHeightForWidth())
+        self.sunButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -165,39 +164,38 @@ class Ui_Overlay(object):
         self.sunButton.setFont(font)
         self.sunButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.sunButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.sunButton.setObjectName("sunButton")
         self.neptuneButton = QtWidgets.QPushButton(parent=Overlay)
         self.neptuneButton.setGeometry(QtCore.QRect(1728, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.neptuneButton.sizePolicy().hasHeightForWidth())
+        self.neptuneButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -209,39 +207,38 @@ class Ui_Overlay(object):
         self.neptuneButton.setFont(font)
         self.neptuneButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.neptuneButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.neptuneButton.setObjectName("neptuneButton")
         self.mercuryButton = QtWidgets.QPushButton(parent=Overlay)
         self.mercuryButton.setGeometry(QtCore.QRect(277, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mercuryButton.sizePolicy().hasHeightForWidth())
+        self.mercuryButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -252,39 +249,38 @@ class Ui_Overlay(object):
         self.mercuryButton.setFont(font)
         self.mercuryButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.mercuryButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.mercuryButton.setObjectName("mercuryButton")
         self.venusButton = QtWidgets.QPushButton(parent=Overlay)
         self.venusButton.setGeometry(QtCore.QRect(484, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.venusButton.sizePolicy().hasHeightForWidth())
+        self.venusButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -295,39 +291,38 @@ class Ui_Overlay(object):
         self.venusButton.setFont(font)
         self.venusButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.venusButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.venusButton.setObjectName("venusButton")
         self.marsButton = QtWidgets.QPushButton(parent=Overlay)
         self.marsButton.setGeometry(QtCore.QRect(898, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.marsButton.sizePolicy().hasHeightForWidth())
+        self.marsButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -338,39 +333,38 @@ class Ui_Overlay(object):
         self.marsButton.setFont(font)
         self.marsButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.marsButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.marsButton.setObjectName("marsButton")
         self.earthButton = QtWidgets.QPushButton(parent=Overlay)
         self.earthButton.setGeometry(QtCore.QRect(691, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.earthButton.sizePolicy().hasHeightForWidth())
+        self.earthButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -381,39 +375,38 @@ class Ui_Overlay(object):
         self.earthButton.setFont(font)
         self.earthButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.earthButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.earthButton.setObjectName("earthButton")
         self.jupiterButton = QtWidgets.QPushButton(parent=Overlay)
         self.jupiterButton.setGeometry(QtCore.QRect(1105, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.jupiterButton.sizePolicy().hasHeightForWidth())
+        self.jupiterButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -424,39 +417,38 @@ class Ui_Overlay(object):
         self.jupiterButton.setFont(font)
         self.jupiterButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.jupiterButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.jupiterButton.setObjectName("jupiterButton")
         self.uranusButton = QtWidgets.QPushButton(parent=Overlay)
         self.uranusButton.setGeometry(QtCore.QRect(1520, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.uranusButton.sizePolicy().hasHeightForWidth())
+        self.uranusButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -467,39 +459,38 @@ class Ui_Overlay(object):
         self.uranusButton.setFont(font)
         self.uranusButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.uranusButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.uranusButton.setObjectName("uranusButton")
         self.saturnButton = QtWidgets.QPushButton(parent=Overlay)
         self.saturnButton.setGeometry(QtCore.QRect(1313, 1010, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.saturnButton.sizePolicy().hasHeightForWidth())
+        self.saturnButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(12)
@@ -510,39 +501,38 @@ class Ui_Overlay(object):
         self.saturnButton.setFont(font)
         self.saturnButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.saturnButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37;\n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.saturnButton.setObjectName("saturnButton")
         self.fps_text = QtWidgets.QLabel(parent=Overlay)
         self.fps_text.setGeometry(QtCore.QRect(40, 20, 81, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.fps_text.sizePolicy().hasHeightForWidth())
+        self.fps_text.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -554,6 +544,11 @@ class Ui_Overlay(object):
         self.fps_text.setObjectName("fps_text")
         self.simulation_speed_text = QtWidgets.QLabel(parent=Overlay)
         self.simulation_speed_text.setGeometry(QtCore.QRect(170, 50, 81, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.simulation_speed_text.sizePolicy().hasHeightForWidth())
+        self.simulation_speed_text.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -564,7 +559,12 @@ class Ui_Overlay(object):
         self.simulation_speed_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.simulation_speed_text.setObjectName("simulation_speed_text")
         self.PerformanceModeCheckbox = QtWidgets.QCheckBox(parent=Overlay)
-        self.PerformanceModeCheckbox.setGeometry(QtCore.QRect(30, 120, 201, 20))
+        self.PerformanceModeCheckbox.setGeometry(QtCore.QRect(30, 210, 201, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.PerformanceModeCheckbox.sizePolicy().hasHeightForWidth())
+        self.PerformanceModeCheckbox.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -573,36 +573,30 @@ class Ui_Overlay(object):
         font.setKerning(False)
         self.PerformanceModeCheckbox.setFont(font)
         self.PerformanceModeCheckbox.setStyleSheet("QCheckBox {\n"
-"    spacing: 10px;        /* Abstand zwischen Indicator und Text */\n"
+"    spacing: 10px;       \n"
 "    font-size: 16px;\n"
 "    color: white;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator {\n"
-"    /* Feste Größe, bleibt immer gleich */\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
 "\n"
-"    /* Weißer Rahmen im Normal‑Zustand */\n"
 "    border: 2px solid #fff;\n"
 "    border-radius: 4px;  \n"
 "    background: transparent;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:hover {\n"
-"    /* Weißer Rahmen beim Hover */\n"
 "    border: 2px solid #fff;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:checked {\n"
-"    /* Klare weiße Füllung anstelle des blauen Häkchens */\n"
 "    background-color: #fff;\n"
-"    /* Optional: Rahmen beibehalten für definierten Rand */\n"
 "    border: 2px solid #fff;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:disabled {\n"
-"    /* Deaktivierter Zustand bleibt dezent */\n"
 "    border: 2px solid #ccc;\n"
 "    background: #f0f0f0;\n"
 "}\n"
@@ -610,6 +604,11 @@ class Ui_Overlay(object):
         self.PerformanceModeCheckbox.setObjectName("PerformanceModeCheckbox")
         self.TimeCounter = QtWidgets.QLabel(parent=Overlay)
         self.TimeCounter.setGeometry(QtCore.QRect(1600, 20, 371, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.TimeCounter.sizePolicy().hasHeightForWidth())
+        self.TimeCounter.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -620,41 +619,46 @@ class Ui_Overlay(object):
         self.TimeCounter.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.TimeCounter.setObjectName("TimeCounter")
         self.Create_Button = QtWidgets.QPushButton(parent=Overlay)
-        self.Create_Button.setGeometry(QtCore.QRect(20, 240, 141, 41))
+        self.Create_Button.setGeometry(QtCore.QRect(20, 340, 141, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Create_Button.sizePolicy().hasHeightForWidth())
+        self.Create_Button.setSizePolicy(sizePolicy)
         self.Create_Button.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37; \n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844; \n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028;\n"
 "    border-color: #FFFFFF;\n"
 "}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"}\n"
+"\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.Create_Button.setObjectName("Create_Button")
         self.listView_2 = QtWidgets.QListView(parent=Overlay)
-        self.listView_2.setGeometry(QtCore.QRect(20, 340, 421, 321))
+        self.listView_2.setGeometry(QtCore.QRect(20, 440, 421, 321))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.listView_2.sizePolicy().hasHeightForWidth())
+        self.listView_2.setSizePolicy(sizePolicy)
         self.listView_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.listView_2.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -665,24 +669,23 @@ class Ui_Overlay(object):
         font.setUnderline(False)
         self.listView_2.setFont(font)
         self.listView_2.setStyleSheet("QListView {\n"
-"    background-color: rgba(40, 42, 54, 0.95); /* Slight transparency effect */\n"
+"    background-color: rgba(40, 42, 54, 0.95);\n"
 "    border: 2px solid #4A4D5E;\n"
 "    border-radius: 10px;\n"
 "    padding: 6px;\n"
 "    color: #E3E6EE;\n"
 "    font: 11pt \"Inter\";\n"
-"    backdrop-filter: blur(10px); /* Smooth glass effect */\n"
+"    backdrop-filter: blur(10px);\n"
 "}\n"
 "\n"
-"/* List Items */\n"
 "QListView::item {\n"
 "    background-color: transparent;\n"
 "    padding: 8px;\n"
-"    border-bottom: 1px solid rgba(100, 110, 130, 0.2); /* Soft dividers */\n"
+"    border-bottom: 1px solid rgba(100, 110, 130, 0.2)\n"
 "}\n"
 "\n"
 "QListView::item:selected {\n"
-"    background-color: #3D4250; /* Sleek selection effect */\n"
+"    background-color: #3D4250; \n"
 "    color: white;\n"
 "    border: 1px solid #6A6F85;\n"
 "}\n"
@@ -693,7 +696,12 @@ class Ui_Overlay(object):
 "}")
         self.listView_2.setObjectName("listView_2")
         self.NameText = QtWidgets.QLabel(parent=Overlay)
-        self.NameText.setGeometry(QtCore.QRect(40, 360, 81, 31))
+        self.NameText.setGeometry(QtCore.QRect(40, 460, 81, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.NameText.sizePolicy().hasHeightForWidth())
+        self.NameText.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -704,55 +712,56 @@ class Ui_Overlay(object):
         self.NameText.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.NameText.setObjectName("NameText")
         self.lineEditName = QtWidgets.QLineEdit(parent=Overlay)
-        self.lineEditName.setGeometry(QtCore.QRect(120, 360, 291, 41))
-        self.lineEditName.setStyleSheet("/* Base appearance */\n"
+        self.lineEditName.setGeometry(QtCore.QRect(120, 460, 291, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEditName.sizePolicy().hasHeightForWidth())
+        self.lineEditName.setSizePolicy(sizePolicy)
+        self.lineEditName.setStyleSheet("\n"
 "QLineEdit {\n"
-"    background-color: #2A2D37;      /* Match button’s rich dark gray */\n"
-"    color: #E3E6EE;                 /* Soft off-white text */\n"
-"    font: bold 12pt \"Bahnschrift\";  /* Same weight and font family */\n"
-"    border: 2px solid #3D4250;      /* Subtle matching border */\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"    padding: 6px 12px;              /* Adjust vertically for line edit */\n"
+"    background-color: #2A2D37;   \n"
+"    color: #E3E6EE;             \n"
+"    font: bold 12pt \"Bahnschrift\";  \n"
+"    border: 2px solid #3D4250;     \n"
+"    border-radius: 10px;          \n"
+"    padding: 6px 12px;              \n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */\n"
+"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);\n"
 "}\n"
 "\n"
-"/* Hover state */\n"
 "QLineEdit:hover {\n"
-"    background-color: #343844;      /* Slightly lighter on hover */\n"
-"    border-color: #4A4F63;          /* Lift the border hue subtly */\n"
+"    background-color: #343844;     \n"
+"    border-color: #4A4F63;        \n"
 "}\n"
 "\n"
-"/* Focused (active) state */\n"
 "QLineEdit:focus {\n"
 "    outline: none;\n"
-"    border: 2px solid #FFFFFF;      /* Bright border on focus */\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
+"    border: 2px solid #FFFFFF;     \n"
 "}\n"
 "\n"
-"/* Disabled state */\n"
 "QLineEdit:disabled {\n"
-"    background-color: #1E2028;      /* Darker to indicate non‑editable */\n"
-"    color: #777A87;                 /* Muted text */\n"
+"    background-color: #1E2028;     \n"
+"    color: #777A87;              \n"
 "    border-color: #2C2F38;\n"
 "}\n"
 "\n"
-"/* Placeholder text styling */\n"
 "QLineEdit[echoMode=\"0\"]::placeholder {\n"
-"    color: #A0A3B1;                 /* Soft gray placeholder */\n"
+"    color: #A0A3B1;              \n"
 "    font: italic 12pt \"Bahnschrift\";\n"
 "}\n"
 "\n"
-"/* Keyframes for pulsing glow */\n"
-"@keyframes glowPulse {\n"
-"    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }\n"
-"    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"}\n"
+"\n"
+"\n"
 "")
         self.lineEditName.setObjectName("lineEditName")
         self.MassText = QtWidgets.QLabel(parent=Overlay)
-        self.MassText.setGeometry(QtCore.QRect(40, 420, 81, 31))
+        self.MassText.setGeometry(QtCore.QRect(40, 520, 81, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.MassText.sizePolicy().hasHeightForWidth())
+        self.MassText.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -763,7 +772,12 @@ class Ui_Overlay(object):
         self.MassText.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.MassText.setObjectName("MassText")
         self.SizeText = QtWidgets.QLabel(parent=Overlay)
-        self.SizeText.setGeometry(QtCore.QRect(40, 480, 81, 31))
+        self.SizeText.setGeometry(QtCore.QRect(40, 580, 81, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.SizeText.sizePolicy().hasHeightForWidth())
+        self.SizeText.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -774,41 +788,46 @@ class Ui_Overlay(object):
         self.SizeText.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.SizeText.setObjectName("SizeText")
         self.CreateAftertInputButton = QtWidgets.QPushButton(parent=Overlay)
-        self.CreateAftertInputButton.setGeometry(QtCore.QRect(160, 610, 141, 41))
+        self.CreateAftertInputButton.setGeometry(QtCore.QRect(160, 710, 141, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.CreateAftertInputButton.sizePolicy().hasHeightForWidth())
+        self.CreateAftertInputButton.setSizePolicy(sizePolicy)
         self.CreateAftertInputButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37; \n"
+"    color: #E3E6EE; \n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028; \n"
 "    border-color: #FFFFFF;\n"
 "}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"}\n"
+"\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.CreateAftertInputButton.setObjectName("CreateAftertInputButton")
         self.VelocityText = QtWidgets.QLabel(parent=Overlay)
-        self.VelocityText.setGeometry(QtCore.QRect(40, 540, 81, 31))
+        self.VelocityText.setGeometry(QtCore.QRect(40, 640, 81, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.VelocityText.sizePolicy().hasHeightForWidth())
+        self.VelocityText.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -819,7 +838,12 @@ class Ui_Overlay(object):
         self.VelocityText.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
         self.VelocityText.setObjectName("VelocityText")
         self.CreationModeCheckbox = QtWidgets.QCheckBox(parent=Overlay)
-        self.CreationModeCheckbox.setGeometry(QtCore.QRect(30, 180, 281, 20))
+        self.CreationModeCheckbox.setGeometry(QtCore.QRect(30, 270, 281, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.CreationModeCheckbox.sizePolicy().hasHeightForWidth())
+        self.CreationModeCheckbox.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -828,221 +852,207 @@ class Ui_Overlay(object):
         font.setKerning(False)
         self.CreationModeCheckbox.setFont(font)
         self.CreationModeCheckbox.setStyleSheet("QCheckBox {\n"
-"    spacing: 10px;        /* Abstand zwischen Indicator und Text */\n"
+"    spacing: 10px;       \n"
 "    font-size: 16px;\n"
 "    color: white;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator {\n"
-"    /* Feste Größe, bleibt immer gleich */\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
 "\n"
-"    /* Weißer Rahmen im Normal‑Zustand */\n"
 "    border: 2px solid #fff;\n"
 "    border-radius: 4px;  \n"
 "    background: transparent;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:hover {\n"
-"    /* Weißer Rahmen beim Hover */\n"
 "    border: 2px solid #fff;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:checked {\n"
-"    /* Klare weiße Füllung anstelle des blauen Häkchens */\n"
 "    background-color: #fff;\n"
-"    /* Optional: Rahmen beibehalten für definierten Rand */\n"
 "    border: 2px solid #fff;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:disabled {\n"
-"    /* Deaktivierter Zustand bleibt dezent */\n"
 "    border: 2px solid #ccc;\n"
 "    background: #f0f0f0;\n"
 "}\n"
 "")
         self.CreationModeCheckbox.setObjectName("CreationModeCheckbox")
-        self.lineEditName_2 = QtWidgets.QLineEdit(parent=Overlay)
-        self.lineEditName_2.setGeometry(QtCore.QRect(120, 420, 291, 41))
-        self.lineEditName_2.setStyleSheet("/* Base appearance */\n"
+        self.lineEditMass = QtWidgets.QLineEdit(parent=Overlay)
+        self.lineEditMass.setGeometry(QtCore.QRect(120, 520, 291, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEditMass.sizePolicy().hasHeightForWidth())
+        self.lineEditMass.setSizePolicy(sizePolicy)
+        self.lineEditMass.setStyleSheet("\n"
 "QLineEdit {\n"
-"    background-color: #2A2D37;      /* Match button’s rich dark gray */\n"
-"    color: #E3E6EE;                 /* Soft off-white text */\n"
-"    font: bold 12pt \"Bahnschrift\";  /* Same weight and font family */\n"
-"    border: 2px solid #3D4250;      /* Subtle matching border */\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"    padding: 6px 12px;              /* Adjust vertically for line edit */\n"
+"    background-color: #2A2D37;   \n"
+"    color: #E3E6EE;             \n"
+"    font: bold 12pt \"Bahnschrift\";  \n"
+"    border: 2px solid #3D4250;     \n"
+"    border-radius: 10px;          \n"
+"    padding: 6px 12px;              \n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */\n"
+"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);\n"
 "}\n"
 "\n"
-"/* Hover state */\n"
 "QLineEdit:hover {\n"
-"    background-color: #343844;      /* Slightly lighter on hover */\n"
-"    border-color: #4A4F63;          /* Lift the border hue subtly */\n"
+"    background-color: #343844;     \n"
+"    border-color: #4A4F63;        \n"
 "}\n"
 "\n"
-"/* Focused (active) state */\n"
 "QLineEdit:focus {\n"
 "    outline: none;\n"
-"    border: 2px solid #FFFFFF;      /* Bright border on focus */\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
+"    border: 2px solid #FFFFFF;     \n"
 "}\n"
 "\n"
-"/* Disabled state */\n"
 "QLineEdit:disabled {\n"
-"    background-color: #1E2028;      /* Darker to indicate non‑editable */\n"
-"    color: #777A87;                 /* Muted text */\n"
+"    background-color: #1E2028;     \n"
+"    color: #777A87;              \n"
 "    border-color: #2C2F38;\n"
 "}\n"
 "\n"
-"/* Placeholder text styling */\n"
 "QLineEdit[echoMode=\"0\"]::placeholder {\n"
-"    color: #A0A3B1;                 /* Soft gray placeholder */\n"
+"    color: #A0A3B1;              \n"
 "    font: italic 12pt \"Bahnschrift\";\n"
 "}\n"
 "\n"
-"/* Keyframes for pulsing glow */\n"
-"@keyframes glowPulse {\n"
-"    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }\n"
-"    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"}\n"
+"\n"
+"\n"
 "")
-        self.lineEditName_2.setObjectName("lineEditName_2")
-        self.lineEditName_3 = QtWidgets.QLineEdit(parent=Overlay)
-        self.lineEditName_3.setGeometry(QtCore.QRect(120, 480, 291, 41))
-        self.lineEditName_3.setStyleSheet("/* Base appearance */\n"
+        self.lineEditMass.setObjectName("lineEditMass")
+        self.lineEditSize = QtWidgets.QLineEdit(parent=Overlay)
+        self.lineEditSize.setGeometry(QtCore.QRect(120, 580, 291, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEditSize.sizePolicy().hasHeightForWidth())
+        self.lineEditSize.setSizePolicy(sizePolicy)
+        self.lineEditSize.setStyleSheet("\n"
 "QLineEdit {\n"
-"    background-color: #2A2D37;      /* Match button’s rich dark gray */\n"
-"    color: #E3E6EE;                 /* Soft off-white text */\n"
-"    font: bold 12pt \"Bahnschrift\";  /* Same weight and font family */\n"
-"    border: 2px solid #3D4250;      /* Subtle matching border */\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"    padding: 6px 12px;              /* Adjust vertically for line edit */\n"
+"    background-color: #2A2D37;   \n"
+"    color: #E3E6EE;             \n"
+"    font: bold 12pt \"Bahnschrift\";  \n"
+"    border: 2px solid #3D4250;     \n"
+"    border-radius: 10px;          \n"
+"    padding: 6px 12px;              \n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */\n"
+"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);\n"
 "}\n"
 "\n"
-"/* Hover state */\n"
 "QLineEdit:hover {\n"
-"    background-color: #343844;      /* Slightly lighter on hover */\n"
-"    border-color: #4A4F63;          /* Lift the border hue subtly */\n"
+"    background-color: #343844;     \n"
+"    border-color: #4A4F63;        \n"
 "}\n"
 "\n"
-"/* Focused (active) state */\n"
 "QLineEdit:focus {\n"
 "    outline: none;\n"
-"    border: 2px solid #FFFFFF;      /* Bright border on focus */\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
+"    border: 2px solid #FFFFFF;     \n"
 "}\n"
 "\n"
-"/* Disabled state */\n"
 "QLineEdit:disabled {\n"
-"    background-color: #1E2028;      /* Darker to indicate non‑editable */\n"
-"    color: #777A87;                 /* Muted text */\n"
+"    background-color: #1E2028;     \n"
+"    color: #777A87;              \n"
 "    border-color: #2C2F38;\n"
 "}\n"
 "\n"
-"/* Placeholder text styling */\n"
 "QLineEdit[echoMode=\"0\"]::placeholder {\n"
-"    color: #A0A3B1;                 /* Soft gray placeholder */\n"
+"    color: #A0A3B1;              \n"
 "    font: italic 12pt \"Bahnschrift\";\n"
 "}\n"
 "\n"
-"/* Keyframes for pulsing glow */\n"
-"@keyframes glowPulse {\n"
-"    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }\n"
-"    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"}\n"
+"\n"
+"\n"
 "")
-        self.lineEditName_3.setObjectName("lineEditName_3")
-        self.lineEditName_4 = QtWidgets.QLineEdit(parent=Overlay)
-        self.lineEditName_4.setGeometry(QtCore.QRect(120, 540, 291, 41))
-        self.lineEditName_4.setStyleSheet("/* Base appearance */\n"
+        self.lineEditSize.setObjectName("lineEditSize")
+        self.lineEditSpeed = QtWidgets.QLineEdit(parent=Overlay)
+        self.lineEditSpeed.setGeometry(QtCore.QRect(120, 640, 291, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEditSpeed.sizePolicy().hasHeightForWidth())
+        self.lineEditSpeed.setSizePolicy(sizePolicy)
+        self.lineEditSpeed.setStyleSheet("\n"
 "QLineEdit {\n"
-"    background-color: #2A2D37;      /* Match button’s rich dark gray */\n"
-"    color: #E3E6EE;                 /* Soft off-white text */\n"
-"    font: bold 12pt \"Bahnschrift\";  /* Same weight and font family */\n"
-"    border: 2px solid #3D4250;      /* Subtle matching border */\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"    padding: 6px 12px;              /* Adjust vertically for line edit */\n"
+"    background-color: #2A2D37;   \n"
+"    color: #E3E6EE;             \n"
+"    font: bold 12pt \"Bahnschrift\";  \n"
+"    border: 2px solid #3D4250;     \n"
+"    border-radius: 10px;          \n"
+"    padding: 6px 12px;              \n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */\n"
+"    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);\n"
 "}\n"
 "\n"
-"/* Hover state */\n"
 "QLineEdit:hover {\n"
-"    background-color: #343844;      /* Slightly lighter on hover */\n"
-"    border-color: #4A4F63;          /* Lift the border hue subtly */\n"
+"    background-color: #343844;     \n"
+"    border-color: #4A4F63;        \n"
 "}\n"
 "\n"
-"/* Focused (active) state */\n"
 "QLineEdit:focus {\n"
 "    outline: none;\n"
-"    border: 2px solid #FFFFFF;      /* Bright border on focus */\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
+"    border: 2px solid #FFFFFF;     \n"
 "}\n"
 "\n"
-"/* Disabled state */\n"
 "QLineEdit:disabled {\n"
-"    background-color: #1E2028;      /* Darker to indicate non‑editable */\n"
-"    color: #777A87;                 /* Muted text */\n"
+"    background-color: #1E2028;     \n"
+"    color: #777A87;              \n"
 "    border-color: #2C2F38;\n"
 "}\n"
 "\n"
-"/* Placeholder text styling */\n"
 "QLineEdit[echoMode=\"0\"]::placeholder {\n"
-"    color: #A0A3B1;                 /* Soft gray placeholder */\n"
+"    color: #A0A3B1;              \n"
 "    font: italic 12pt \"Bahnschrift\";\n"
 "}\n"
 "\n"
-"/* Keyframes for pulsing glow */\n"
-"@keyframes glowPulse {\n"
-"    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }\n"
-"    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }\n"
-"}\n"
+"\n"
+"\n"
 "")
-        self.lineEditName_4.setObjectName("lineEditName_4")
+        self.lineEditSpeed.setObjectName("lineEditSpeed")
         self.RerunButton = QtWidgets.QPushButton(parent=Overlay)
-        self.RerunButton.setGeometry(QtCore.QRect(310, 20, 91, 41))
+        self.RerunButton.setGeometry(QtCore.QRect(30, 80, 91, 41))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RerunButton.sizePolicy().hasHeightForWidth())
+        self.RerunButton.setSizePolicy(sizePolicy)
         self.RerunButton.setStyleSheet("QPushButton {\n"
-"    background-color: #2A2D37; /* Rich dark gray, no flat black */\n"
-"    color: #E3E6EE; /* Soft off-white text */\n"
+"    background-color: #2A2D37; \n"
+"    color: #E3E6EE;\n"
 "    font: bold 12pt \"Bahnschrift\";\n"
-"    border: 2px solid #3D4250; /* Subtle border */\n"
+"    border: 2px solid #3D4250; \n"
 "    border-radius: 10px;\n"
 "    padding: 10px 18px;\n"
 "    transition: all 0.2s ease-in-out;\n"
-"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #343844; /* Slightly lighter on hover */\n"
+"    background-color: #343844;\n"
 "    border-color: #3D4250;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #1E2028; /* Darker pressed effect */\n"
+"    background-color: #1E2028;\n"
 "    border-color: #FFFFFF;\n"
-"}\n"
-"@keyframes glowPulse {\n"
-"    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
-"    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }\n"
-"    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }\n"
 "}\n"
 "\n"
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "    border: 2px solid #FFFFFF;\n"
-"    animation: glowPulse 1.5s infinite alternate;\n"
 "}")
         self.RerunButton.setObjectName("RerunButton")
         self.WarningText = QtWidgets.QLabel(parent=Overlay)
-        self.WarningText.setGeometry(QtCore.QRect(20, 680, 421, 31))
+        self.WarningText.setGeometry(QtCore.QRect(20, 780, 421, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.WarningText.sizePolicy().hasHeightForWidth())
+        self.WarningText.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Bahnschrift")
         font.setPointSize(-1)
@@ -1053,6 +1063,105 @@ class Ui_Overlay(object):
         self.WarningText.setStyleSheet("QLabel { color: yellow; font-size: 20px; font-family: Bahnschrift; }")
         self.WarningText.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.WarningText.setObjectName("WarningText")
+        self.Scale = QtWidgets.QLabel(parent=Overlay)
+        self.Scale.setGeometry(QtCore.QRect(210, 100, 241, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Scale.sizePolicy().hasHeightForWidth())
+        self.Scale.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setUnderline(False)
+        self.Scale.setFont(font)
+        self.Scale.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
+        self.Scale.setText("")
+        self.Scale.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.Scale.setObjectName("Scale")
+        self.showMoonsCheckbox = QtWidgets.QCheckBox(parent=Overlay)
+        self.showMoonsCheckbox.setGeometry(QtCore.QRect(30, 150, 281, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.showMoonsCheckbox.sizePolicy().hasHeightForWidth())
+        self.showMoonsCheckbox.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setKerning(False)
+        self.showMoonsCheckbox.setFont(font)
+        self.showMoonsCheckbox.setStyleSheet("QCheckBox {\n"
+"    spacing: 10px;       \n"
+"    font-size: 16px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 16px;\n"
+"    height: 16px;\n"
+"\n"
+"    border: 2px solid #fff;\n"
+"    border-radius: 4px;  \n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:hover {\n"
+"    border: 2px solid #fff;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    background-color: #fff;\n"
+"    border: 2px solid #fff;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:disabled {\n"
+"    border: 2px solid #ccc;\n"
+"    background: #f0f0f0;\n"
+"}\n"
+"")
+        self.showMoonsCheckbox.setObjectName("showMoonsCheckbox")
+        self.InfoHints = QtWidgets.QLabel(parent=Overlay)
+        self.InfoHints.setGeometry(QtCore.QRect(726, 20, 401, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.InfoHints.sizePolicy().hasHeightForWidth())
+        self.InfoHints.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setKerning(False)
+        self.InfoHints.setFont(font)
+        self.InfoHints.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.InfoHints.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
+        self.InfoHints.setText("")
+        self.InfoHints.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.InfoHints.setObjectName("InfoHints")
+        self.InfoHints_2 = QtWidgets.QLabel(parent=Overlay)
+        self.InfoHints_2.setGeometry(QtCore.QRect(626, 20, 591, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.InfoHints_2.sizePolicy().hasHeightForWidth())
+        self.InfoHints_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setKerning(False)
+        self.InfoHints_2.setFont(font)
+        self.InfoHints_2.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.InfoHints_2.setStyleSheet("QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }")
+        self.InfoHints_2.setText("")
+        self.InfoHints_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.InfoHints_2.setObjectName("InfoHints_2")
 
         self.retranslateUi(Overlay)
         QtCore.QMetaObject.connectSlotsByName(Overlay)
@@ -1081,8 +1190,9 @@ class Ui_Overlay(object):
         self.CreateAftertInputButton.setText(_translate("Overlay", "Create"))
         self.VelocityText.setText(_translate("Overlay", "Speed : "))
         self.CreationModeCheckbox.setText(_translate("Overlay", "Creation Mode "))
-        self.lineEditName_2.setPlaceholderText(_translate("Overlay", "1000 (*10e23)"))
-        self.lineEditName_3.setPlaceholderText(_translate("Overlay", "123  (max. 999)"))
-        self.lineEditName_4.setPlaceholderText(_translate("Overlay", "123456 m/s "))
+        self.lineEditMass.setPlaceholderText(_translate("Overlay", "1000 (*10e23)"))
+        self.lineEditSize.setPlaceholderText(_translate("Overlay", "123  (max. 999)"))
+        self.lineEditSpeed.setPlaceholderText(_translate("Overlay", "123456 m/s "))
         self.RerunButton.setText(_translate("Overlay", "Rerun"))
         self.WarningText.setText(_translate("Overlay", "WARNING: Size is low"))
+        self.showMoonsCheckbox.setText(_translate("Overlay", " Moons"))

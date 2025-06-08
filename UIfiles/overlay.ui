@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
+    <width>1855</width>
     <height>1091</height>
    </rect>
   </property>
@@ -28,6 +28,12 @@
      <width>521</width>
      <height>681</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="maximumSize">
     <size>
@@ -52,32 +58,16 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QListView {
-    background-color: rgba(40, 42, 54, 0.95); /* Slight transparency effect */
+    background-color: rgba(40, 42, 54, 0.95); 
     border: 2px solid #4A4D5E;
     border-radius: 10px;
     padding: 6px;
     color: #E3E6EE;
     font: 11pt &quot;Inter&quot;;
-    backdrop-filter: blur(10px); /* Smooth glass effect */
+    backdrop-filter: blur(10px); 
 }
 
-/* List Items */
-QListView::item {
-    background-color: transparent;
-    padding: 8px;
-    border-bottom: 1px solid rgba(100, 110, 130, 0.2); /* Soft dividers */
-}
-
-QListView::item:selected {
-    background-color: #3D4250; /* Sleek selection effect */
-    color: white;
-    border: 1px solid #6A6F85;
-}
-
-QListView::item:hover {
-    background-color: #4A5062;
-    color: white;
-}</string>
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="ObjectTypeLabel">
@@ -90,7 +80,7 @@ QListView::item:hover {
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -136,7 +126,7 @@ QListView::item:hover {
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -182,7 +172,7 @@ QListView::item:hover {
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -227,9 +217,15 @@ QListView::item:hover {
      <height>22</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">QSlider::groove:horizontal {
-    background: #2E2F38;  /* Dark, clean base */
+    background: #2E2F38; 
     height: 6px;
     border-radius: 3px;
 }
@@ -245,13 +241,13 @@ QSlider::handle:horizontal {
 }
 
 QSlider::handle:horizontal:hover {
-    background:#5A5F74;  /* Subtle hover effect */
-    transform: scale(1.1); /* Interactive feedback */
+    background:#5A5F74;  
+    transform: scale(1.1); 
 }
 
 QSlider::sub-page:horizontal,
 QSlider::add-page:horizontal {
-    background: #2E2F38; /* Matches groove, no highlight */
+    background: #2E2F38; 
     border-radius: 3px;
 }</string>
    </property>
@@ -268,6 +264,12 @@ QSlider::add-page:horizontal {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -283,35 +285,29 @@ QSlider::add-page:horizontal {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -326,6 +322,12 @@ QPushButton:focus {
      <width>150</width>
      <height>50</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -343,35 +345,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -387,6 +383,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -402,35 +404,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -446,6 +442,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -461,35 +463,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -505,6 +501,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -520,35 +522,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -564,6 +560,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -579,35 +581,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -623,6 +619,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -638,35 +640,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -682,6 +678,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -697,35 +699,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -741,6 +737,12 @@ QPushButton:focus {
      <height>50</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -756,35 +758,29 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37;
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -799,6 +795,12 @@ QPushButton:focus {
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -825,6 +827,12 @@ QPushButton:focus {
      <height>21</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
@@ -847,10 +855,16 @@ QPushButton:focus {
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>120</y>
+     <y>210</y>
      <width>201</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -863,36 +877,30 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QCheckBox {
-    spacing: 10px;        /* Abstand zwischen Indicator und Text */
+    spacing: 10px;       
     font-size: 16px;
     color: white;
 }
 
 QCheckBox::indicator {
-    /* Feste Größe, bleibt immer gleich */
     width: 16px;
     height: 16px;
 
-    /* Weißer Rahmen im Normal‑Zustand */
     border: 2px solid #fff;
     border-radius: 4px;  
     background: transparent;
 }
 
 QCheckBox::indicator:hover {
-    /* Weißer Rahmen beim Hover */
     border: 2px solid #fff;
 }
 
 QCheckBox::indicator:checked {
-    /* Klare weiße Füllung anstelle des blauen Häkchens */
     background-color: #fff;
-    /* Optional: Rahmen beibehalten für definierten Rand */
     border: 2px solid #fff;
 }
 
 QCheckBox::indicator:disabled {
-    /* Deaktivierter Zustand bleibt dezent */
     border: 2px solid #ccc;
     background: #f0f0f0;
 }
@@ -910,6 +918,12 @@ QCheckBox::indicator:disabled {
      <width>371</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -931,42 +945,43 @@ QCheckBox::indicator:disabled {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>240</y>
+     <y>340</y>
      <width>141</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37; 
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250;
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844; 
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028;
     border-color: #FFFFFF;
 }
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-}
+
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -977,10 +992,16 @@ QPushButton:focus {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>340</y>
+     <y>440</y>
      <width>421</width>
      <height>321</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="maximumSize">
     <size>
@@ -1005,24 +1026,23 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QListView {
-    background-color: rgba(40, 42, 54, 0.95); /* Slight transparency effect */
+    background-color: rgba(40, 42, 54, 0.95);
     border: 2px solid #4A4D5E;
     border-radius: 10px;
     padding: 6px;
     color: #E3E6EE;
     font: 11pt &quot;Inter&quot;;
-    backdrop-filter: blur(10px); /* Smooth glass effect */
+    backdrop-filter: blur(10px);
 }
 
-/* List Items */
 QListView::item {
     background-color: transparent;
     padding: 8px;
-    border-bottom: 1px solid rgba(100, 110, 130, 0.2); /* Soft dividers */
+    border-bottom: 1px solid rgba(100, 110, 130, 0.2)
 }
 
 QListView::item:selected {
-    background-color: #3D4250; /* Sleek selection effect */
+    background-color: #3D4250; 
     color: white;
     border: 1px solid #6A6F85;
 }
@@ -1037,10 +1057,16 @@ QListView::item:hover {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>360</y>
+     <y>460</y>
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1062,56 +1088,53 @@ QListView::item:hover {
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>360</y>
+     <y>460</y>
      <width>291</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
-    <string notr="true">/* Base appearance */
+    <string notr="true">
 QLineEdit {
-    background-color: #2A2D37;      /* Match button’s rich dark gray */
-    color: #E3E6EE;                 /* Soft off-white text */
-    font: bold 12pt &quot;Bahnschrift&quot;;  /* Same weight and font family */
-    border: 2px solid #3D4250;      /* Subtle matching border */
-    border-radius: 10px;            /* Rounded corners */
-    padding: 6px 12px;              /* Adjust vertically for line edit */
+    background-color: #2A2D37;   
+    color: #E3E6EE;             
+    font: bold 12pt &quot;Bahnschrift&quot;;  
+    border: 2px solid #3D4250;     
+    border-radius: 10px;          
+    padding: 6px 12px;              
     transition: all 0.2s ease-in-out;
-    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Hover state */
 QLineEdit:hover {
-    background-color: #343844;      /* Slightly lighter on hover */
-    border-color: #4A4F63;          /* Lift the border hue subtly */
+    background-color: #343844;     
+    border-color: #4A4F63;        
 }
 
-/* Focused (active) state */
 QLineEdit:focus {
     outline: none;
-    border: 2px solid #FFFFFF;      /* Bright border on focus */
-    animation: glowPulse 1.5s infinite alternate;
+    border: 2px solid #FFFFFF;     
 }
 
-/* Disabled state */
 QLineEdit:disabled {
-    background-color: #1E2028;      /* Darker to indicate non‑editable */
-    color: #777A87;                 /* Muted text */
+    background-color: #1E2028;     
+    color: #777A87;              
     border-color: #2C2F38;
 }
 
-/* Placeholder text styling */
 QLineEdit[echoMode=&quot;0&quot;]::placeholder {
-    color: #A0A3B1;                 /* Soft gray placeholder */
+    color: #A0A3B1;              
     font: italic 12pt &quot;Bahnschrift&quot;;
 }
 
-/* Keyframes for pulsing glow */
-@keyframes glowPulse {
-    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }
-    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-}
+
+
 </string>
    </property>
    <property name="placeholderText">
@@ -1122,10 +1145,16 @@ QLineEdit[echoMode=&quot;0&quot;]::placeholder {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>420</y>
+     <y>520</y>
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1147,10 +1176,16 @@ QLineEdit[echoMode=&quot;0&quot;]::placeholder {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>480</y>
+     <y>580</y>
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1172,42 +1207,43 @@ QLineEdit[echoMode=&quot;0&quot;]::placeholder {
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>610</y>
+     <y>710</y>
      <width>141</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37; 
+    color: #E3E6EE; 
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250;
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028; 
     border-color: #FFFFFF;
 }
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-}
+
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -1218,10 +1254,16 @@ QPushButton:focus {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>540</y>
+     <y>640</y>
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1243,10 +1285,16 @@ QPushButton:focus {
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>180</y>
+     <y>270</y>
      <width>281</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1259,36 +1307,30 @@ QPushButton:focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QCheckBox {
-    spacing: 10px;        /* Abstand zwischen Indicator und Text */
+    spacing: 10px;       
     font-size: 16px;
     color: white;
 }
 
 QCheckBox::indicator {
-    /* Feste Größe, bleibt immer gleich */
     width: 16px;
     height: 16px;
 
-    /* Weißer Rahmen im Normal‑Zustand */
     border: 2px solid #fff;
     border-radius: 4px;  
     background: transparent;
 }
 
 QCheckBox::indicator:hover {
-    /* Weißer Rahmen beim Hover */
     border: 2px solid #fff;
 }
 
 QCheckBox::indicator:checked {
-    /* Klare weiße Füllung anstelle des blauen Häkchens */
     background-color: #fff;
-    /* Optional: Rahmen beibehalten für definierten Rand */
     border: 2px solid #fff;
 }
 
 QCheckBox::indicator:disabled {
-    /* Deaktivierter Zustand bleibt dezent */
     border: 2px solid #ccc;
     background: #f0f0f0;
 }
@@ -1298,180 +1340,171 @@ QCheckBox::indicator:disabled {
     <string>Creation Mode </string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditName_2">
+  <widget class="QLineEdit" name="lineEditMass">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>420</y>
+     <y>520</y>
      <width>291</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
-    <string notr="true">/* Base appearance */
+    <string notr="true">
 QLineEdit {
-    background-color: #2A2D37;      /* Match button’s rich dark gray */
-    color: #E3E6EE;                 /* Soft off-white text */
-    font: bold 12pt &quot;Bahnschrift&quot;;  /* Same weight and font family */
-    border: 2px solid #3D4250;      /* Subtle matching border */
-    border-radius: 10px;            /* Rounded corners */
-    padding: 6px 12px;              /* Adjust vertically for line edit */
+    background-color: #2A2D37;   
+    color: #E3E6EE;             
+    font: bold 12pt &quot;Bahnschrift&quot;;  
+    border: 2px solid #3D4250;     
+    border-radius: 10px;          
+    padding: 6px 12px;              
     transition: all 0.2s ease-in-out;
-    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Hover state */
 QLineEdit:hover {
-    background-color: #343844;      /* Slightly lighter on hover */
-    border-color: #4A4F63;          /* Lift the border hue subtly */
+    background-color: #343844;     
+    border-color: #4A4F63;        
 }
 
-/* Focused (active) state */
 QLineEdit:focus {
     outline: none;
-    border: 2px solid #FFFFFF;      /* Bright border on focus */
-    animation: glowPulse 1.5s infinite alternate;
+    border: 2px solid #FFFFFF;     
 }
 
-/* Disabled state */
 QLineEdit:disabled {
-    background-color: #1E2028;      /* Darker to indicate non‑editable */
-    color: #777A87;                 /* Muted text */
+    background-color: #1E2028;     
+    color: #777A87;              
     border-color: #2C2F38;
 }
 
-/* Placeholder text styling */
 QLineEdit[echoMode=&quot;0&quot;]::placeholder {
-    color: #A0A3B1;                 /* Soft gray placeholder */
+    color: #A0A3B1;              
     font: italic 12pt &quot;Bahnschrift&quot;;
 }
 
-/* Keyframes for pulsing glow */
-@keyframes glowPulse {
-    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }
-    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-}
+
+
 </string>
    </property>
    <property name="placeholderText">
     <string>1000 (*10e23)</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditName_3">
+  <widget class="QLineEdit" name="lineEditSize">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>480</y>
+     <y>580</y>
      <width>291</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
-    <string notr="true">/* Base appearance */
+    <string notr="true">
 QLineEdit {
-    background-color: #2A2D37;      /* Match button’s rich dark gray */
-    color: #E3E6EE;                 /* Soft off-white text */
-    font: bold 12pt &quot;Bahnschrift&quot;;  /* Same weight and font family */
-    border: 2px solid #3D4250;      /* Subtle matching border */
-    border-radius: 10px;            /* Rounded corners */
-    padding: 6px 12px;              /* Adjust vertically for line edit */
+    background-color: #2A2D37;   
+    color: #E3E6EE;             
+    font: bold 12pt &quot;Bahnschrift&quot;;  
+    border: 2px solid #3D4250;     
+    border-radius: 10px;          
+    padding: 6px 12px;              
     transition: all 0.2s ease-in-out;
-    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Hover state */
 QLineEdit:hover {
-    background-color: #343844;      /* Slightly lighter on hover */
-    border-color: #4A4F63;          /* Lift the border hue subtly */
+    background-color: #343844;     
+    border-color: #4A4F63;        
 }
 
-/* Focused (active) state */
 QLineEdit:focus {
     outline: none;
-    border: 2px solid #FFFFFF;      /* Bright border on focus */
-    animation: glowPulse 1.5s infinite alternate;
+    border: 2px solid #FFFFFF;     
 }
 
-/* Disabled state */
 QLineEdit:disabled {
-    background-color: #1E2028;      /* Darker to indicate non‑editable */
-    color: #777A87;                 /* Muted text */
+    background-color: #1E2028;     
+    color: #777A87;              
     border-color: #2C2F38;
 }
 
-/* Placeholder text styling */
 QLineEdit[echoMode=&quot;0&quot;]::placeholder {
-    color: #A0A3B1;                 /* Soft gray placeholder */
+    color: #A0A3B1;              
     font: italic 12pt &quot;Bahnschrift&quot;;
 }
 
-/* Keyframes for pulsing glow */
-@keyframes glowPulse {
-    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }
-    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-}
+
+
 </string>
    </property>
    <property name="placeholderText">
     <string>123  (max. 999)</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditName_4">
+  <widget class="QLineEdit" name="lineEditSpeed">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>540</y>
+     <y>640</y>
      <width>291</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
-    <string notr="true">/* Base appearance */
+    <string notr="true">
 QLineEdit {
-    background-color: #2A2D37;      /* Match button’s rich dark gray */
-    color: #E3E6EE;                 /* Soft off-white text */
-    font: bold 12pt &quot;Bahnschrift&quot;;  /* Same weight and font family */
-    border: 2px solid #3D4250;      /* Subtle matching border */
-    border-radius: 10px;            /* Rounded corners */
-    padding: 6px 12px;              /* Adjust vertically for line edit */
+    background-color: #2A2D37;   
+    color: #E3E6EE;             
+    font: bold 12pt &quot;Bahnschrift&quot;;  
+    border: 2px solid #3D4250;     
+    border-radius: 10px;          
+    padding: 6px 12px;              
     transition: all 0.2s ease-in-out;
-    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4); /* Inner depth */
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Hover state */
 QLineEdit:hover {
-    background-color: #343844;      /* Slightly lighter on hover */
-    border-color: #4A4F63;          /* Lift the border hue subtly */
+    background-color: #343844;     
+    border-color: #4A4F63;        
 }
 
-/* Focused (active) state */
 QLineEdit:focus {
     outline: none;
-    border: 2px solid #FFFFFF;      /* Bright border on focus */
-    animation: glowPulse 1.5s infinite alternate;
+    border: 2px solid #FFFFFF;     
 }
 
-/* Disabled state */
 QLineEdit:disabled {
-    background-color: #1E2028;      /* Darker to indicate non‑editable */
-    color: #777A87;                 /* Muted text */
+    background-color: #1E2028;     
+    color: #777A87;              
     border-color: #2C2F38;
 }
 
-/* Placeholder text styling */
 QLineEdit[echoMode=&quot;0&quot;]::placeholder {
-    color: #A0A3B1;                 /* Soft gray placeholder */
+    color: #A0A3B1;              
     font: italic 12pt &quot;Bahnschrift&quot;;
 }
 
-/* Keyframes for pulsing glow */
-@keyframes glowPulse {
-    0%   { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-    50%  { box-shadow: inset 0 0 15px rgba(122,129,255,0.7), 0 0 15px rgba(122,129,255,0.7); }
-    100% { box-shadow: inset 0 0 5px rgba(122,129,255,0.4), 0 0 5px rgba(122,129,255,0.4); }
-}
+
+
 </string>
    </property>
    <property name="placeholderText">
@@ -1481,43 +1514,43 @@ QLineEdit[echoMode=&quot;0&quot;]::placeholder {
   <widget class="QPushButton" name="RerunButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>20</y>
+     <x>30</x>
+     <y>80</y>
      <width>91</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    background-color: #2A2D37; /* Rich dark gray, no flat black */
-    color: #E3E6EE; /* Soft off-white text */
+    background-color: #2A2D37; 
+    color: #E3E6EE;
     font: bold 12pt &quot;Bahnschrift&quot;;
-    border: 2px solid #3D4250; /* Subtle border */
+    border: 2px solid #3D4250; 
     border-radius: 10px;
     padding: 10px 18px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle depth effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 QPushButton:hover {
-    background-color: #343844; /* Slightly lighter on hover */
+    background-color: #343844;
     border-color: #3D4250;
 }
 
 QPushButton:pressed {
-    background-color: #1E2028; /* Darker pressed effect */
+    background-color: #1E2028;
     border-color: #FFFFFF;
-}
-@keyframes glowPulse {
-    0% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
-    50% { box-shadow: 0px 0px 15px rgba(122, 129, 255, 0.7); }
-    100% { box-shadow: 0px 0px 5px rgba(122, 129, 255, 0.4); }
 }
 
 QPushButton:focus {
     outline: none;
     border: 2px solid #FFFFFF;
-    animation: glowPulse 1.5s infinite alternate;
 }</string>
    </property>
    <property name="text">
@@ -1528,10 +1561,16 @@ QPushButton:focus {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>680</y>
+     <y>780</y>
      <width>421</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -1547,6 +1586,172 @@ QPushButton:focus {
    </property>
    <property name="text">
     <string>WARNING: Size is low</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Scale">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="showMoonsCheckbox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>150</y>
+     <width>281</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>-1</pointsize>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 10px;       
+    font-size: 16px;
+    color: white;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #fff;
+    border-radius: 4px;  
+    background: transparent;
+}
+
+QCheckBox::indicator:hover {
+    border: 2px solid #fff;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #fff;
+    border: 2px solid #fff;
+}
+
+QCheckBox::indicator:disabled {
+    border: 2px solid #ccc;
+    background: #f0f0f0;
+}
+</string>
+   </property>
+   <property name="text">
+    <string> Moons</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="InfoHints">
+   <property name="geometry">
+    <rect>
+     <x>726</x>
+     <y>20</y>
+     <width>401</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>-1</pointsize>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LayoutDirection::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="InfoHints_2">
+   <property name="geometry">
+    <rect>
+     <x>626</x>
+     <y>20</y>
+     <width>591</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>-1</pointsize>
+     <bold>false</bold>
+     <underline>false</underline>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LayoutDirection::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel { color: white; font-size: 20px; font-family: Bahnschrift; }</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignmentFlag::AlignCenter</set>
